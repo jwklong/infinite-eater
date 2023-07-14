@@ -13,6 +13,7 @@ class EdibleObject extends PIXI.Sprite
         this.nutrition = new Decimal(1);
         this.damage = 0;
         this.color = 0; //used for tinting
+        this.rotation = Utils.rotationFromVector(Math.random(),Math.random()) + Math.PI //i think rotation is in radians, which i dont understand lol
 
         /*this.filter = new PIXI.AbstractFilter(document.querySelector("#shader_edible_v").innerHTML, document.querySelector("#shader_edible_f").innerHTML,
         {
@@ -105,11 +106,7 @@ class EdibleObject extends PIXI.Sprite
             }
         }
 
-        if(normalized.x.equals(0) && normalized.y.equals(0))
-        {
-            this.rotation = 0;
-        }
-        else
+        if(!(normalized.x.equals(0) && normalized.y.equals(0)))
         {
             this.rotation = Utils.rotationFromVector(normalized.x, normalized.y) + Math.PI;
         }
